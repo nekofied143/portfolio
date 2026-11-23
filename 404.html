@@ -11,4 +11,130 @@
 
 /* Interactive satire lab */
 .lab-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:20px}.terminal{background:#171717;color:#e5ff59;border:2px solid #171717;box-shadow:7px 7px 0 #77746c;min-height:385px;display:flex;flex-direction:column}.terminal-head{background:#e5ff59;color:#171717;padding:12px 17px;display:flex;justify-content:space-between;align-items:center;font-family:'DM Mono',monospace;font-size:12px;font-weight:500}.terminal-body{padding:22px;font-family:'DM Mono',monospace;font-size:13px;line-height:1.75;flex:1;max-height:310px;overflow:auto;overflow-wrap:anywhere}.terminal-line{white-space:pre-wrap}.terminal-line.dim{color:#c8c9b1}.terminal-line.error{color:#ff9e9e}.terminal-form{display:flex;align-items:center;gap:9px;margin-top:12px}.terminal-form label{white-space:nowrap}.terminal-form input{min-width:0;flex:1;background:transparent;border:0;border-bottom:1px solid #7d8555;outline:none;color:#fff;font:inherit;padding:6px 2px;border-radius:0}.terminal-form input:focus{border-color:#e5ff59}.terminal-form button{background:#e5ff59;border:0;padding:7px 10px;font:inherit;color:#171717}.fix-card{background:#e5ff59;border:2px solid #171717;box-shadow:7px 7px 0 #171717;padding:27px;display:flex;flex-direction:column;align-items:flex-start}.fix-card h3{font-size:clamp(30px,3vw,43px);letter-spacing:-.06em;line-height:1.05;margin:15px 0}.fix-card p{line-height:1.6}.fix-output{background:#fffdf7;border:2px dashed #171717;padding:15px;width:100%;min-height:90px;margin:12px 0 20px;font-family:'DM Mono',monospace;font-size:13px;line-height:1.6;overflow-wrap:anywhere}.fix-card button{margin-top:auto}.terminal-tip{font-family:'DM Mono',monospace;font-size:12px;color:#6a685f;margin-top:18px}.error-page{min-height:100vh;display:flex;flex-direction:column}.error-main{flex:1;display:flex;flex-direction:column;justify-content:center;padding-top:65px;padding-bottom:75px}.error-main h1{font-size:clamp(110px,23vw,310px);letter-spacing:-.11em;line-height:.85;margin:20px 0}.error-main h2{font-size:clamp(30px,5vw,64px);letter-spacing:-.06em;margin:20px 0}.error-main p{font-size:19px;max-width:600px;line-height:1.6}.error-footer{margin-top:auto}@media(max-width:800px){.lab-grid{grid-template-columns:1fr}.terminal{min-height:360px}}@media(max-width:550px){.terminal-body{padding:14px;font-size:12px}.fix-card{padding:22px}}
-</style></head><body class="error-page"><header class="container nav"><a class="logo" href="index.html">neko<span>fied</span>143.</a><span class="mono">INCIDENT #404</span></header><main class="container error-main"><span class="eyebrow"><span class="dot"></span> SYSTEM STATUS: TECHNICALLY A WEBSITE</span><h1>404<span style="color:#7b7b72">.</span></h1><h2>This page has left the chat.</h2><p>We searched the server, checked the cables, and blamed DNS. The page is still missing. Please pretend this was intentional.</p><div class="hero-actions"><a class="btn primary" href="index.html">Return to civilization ↗</a><button class="btn secondary" type="button" onclick="history.back()">Try going back ←</button></div></main><footer class="container error-footer"><span>© <span id="year"></span> nekofied143 · This is fine.</span><span>ERROR HANDLED WITH QUESTIONABLE GRACE</span></footer><script>document.getElementById('year').textContent=new Date().getFullYear();</script></body></html>
+</style><style>
+
+/* v10: mobile-first refinements, keeping the original brutalist palette */
+html{scroll-padding-top:18px}
+body{overflow-x:clip}
+img,svg,video,canvas{max-width:100%}
+.container,.section,.card,.project,.ticket-panel,.review-panel,.review-result,.extra-card,.fix-card,.stat-tile{min-width:0}
+button,a,input,select,textarea{touch-action:manipulation}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #4776e6;outline-offset:3px}
+.nav-toggle{display:none;background:var(--accent);border:2px solid var(--ink);color:var(--ink);font:700 12px 'DM Mono',monospace;padding:10px 13px;min-height:44px;align-items:center;gap:8px}
+.nav-toggle .menu-icon{font-size:20px;line-height:1}
+@media(max-width:900px){
+ .nav{position:relative;flex-wrap:wrap;gap:12px;z-index:30}
+ .nav-toggle{display:inline-flex;margin-left:auto}
+ .links{display:none!important;flex-basis:100%;width:100%;padding:10px 0 4px;flex-direction:column!important;align-items:stretch!important;gap:0!important}
+ .nav.menu-open .links{display:flex!important}
+ .links a,.links a:not(.nav-cta){display:block!important;padding:14px 12px;border-top:1px solid var(--ink);min-height:44px;text-decoration:none}
+ .links .nav-cta{background:var(--accent);border:2px solid var(--ink);margin-top:8px;text-align:center}
+ .hero-bottom{gap:20px}
+ .lab-grid{grid-template-columns:1fr}
+ .project{grid-template-columns:1fr}
+ .project-art{min-height:290px}
+ .ticket-layout,.review-layout,.extras-grid{grid-template-columns:1fr}
+ .stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .achievement-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .section-head{align-items:start}
+}
+@media(max-width:600px){
+ .container{padding-left:18px;padding-right:18px}
+ .nav{padding-top:14px;padding-bottom:14px}
+ .logo{font-size:clamp(19px,5vw,24px);overflow-wrap:anywhere}
+ .hero{padding-top:42px;padding-bottom:55px}
+ .hero h1{font-size:clamp(45px,11.5vw,72px);line-height:.99;letter-spacing:-.07em;overflow-wrap:normal}
+ .hero-bottom{display:flex;flex-direction:column;align-items:flex-start}
+ .hero-copy{font-size:16px;line-height:1.65}
+ .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+ .hero-actions .btn{margin:0;max-width:100%}
+ .stamp{margin-top:8px;width:112px;height:112px;align-self:flex-end}
+ .section{padding-top:56px;padding-bottom:60px}
+ .section h2{font-size:clamp(36px,10vw,54px);overflow-wrap:anywhere}
+ .section-head{display:block;margin-bottom:24px}
+ .aside-note{max-width:100%;margin-top:12px}
+ .cards,.stats-grid,.achievement-list{grid-template-columns:1fr}
+ .card{min-height:215px;padding:22px}
+ .project-copy{padding:24px}
+ .project h3{font-size:clamp(38px,11vw,56px)}
+ .project-art{min-height:255px;padding:25px}
+ .fake-window{transform:rotate(-2deg);box-shadow:6px 6px 0 var(--ink)}
+ .window-body{padding:18px}
+ .window-body b{font-size:23px}
+ .about{gap:16px}
+ .about p{font-size:17px}
+ .fact{flex-wrap:wrap}
+ .fact strong{text-align:left}
+ .terminal{min-height:320px;box-shadow:4px 4px 0 #77746c}
+ .terminal-head{font-size:10px;padding:10px;gap:8px;overflow-wrap:anywhere}
+ .terminal-body{padding:12px;font-size:12px;max-height:340px}
+ .terminal-form{flex-wrap:wrap;gap:7px}
+ .terminal-form label{font-size:11px}
+ .terminal-form input{min-width:100px;flex:1 1 110px;font-size:16px}
+ .terminal-form button{min-height:44px;min-width:48px}
+ .fix-card,.extra-card,.ticket-panel,.review-panel,.review-result{padding:20px;box-shadow:4px 4px 0 var(--ink)}
+ .fix-card .btn,.extra-card .btn,.ticket-panel .btn,.review-panel .btn{max-width:100%;white-space:normal;text-align:center}
+ .stats-grid{gap:12px}
+ .stat-tile{padding:19px}
+ .stat-value{font-size:48px}
+ .bsod-launch{padding:20px}
+ .bsod-launch h3{font-size:26px}
+ .bsod-launch .btn{white-space:normal}
+ .achievement{padding:14px;gap:12px;align-items:flex-start;overflow-wrap:anywhere}
+ .achievement-icon{flex:0 0 auto}
+ .achievement strong{font-size:14px}
+ .achievement small{line-height:1.5}
+ .rarity-legend{line-height:2.3}
+ .gallery-toolbar{align-items:stretch}
+ .gallery-filters{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+ .gallery-filter{padding:11px 5px;font-size:10px;min-height:44px}
+ .gallery-select-label{justify-content:space-between;width:100%}
+ #rarity-filter{flex:1;max-width:75%;min-height:44px}
+ .ticket-queue-head{flex-wrap:wrap}
+ .ticket-entry-head{align-items:flex-start}
+ .ticket-id{overflow-wrap:anywhere}
+ .ticket-actions button,.ticket-reset{min-height:44px}
+ .ticket-panel select,.ticket-panel textarea{font-size:16px}
+ .review-panel button{min-height:44px;max-width:100%;white-space:normal}
+ .review-top{flex-wrap:wrap}
+ .review-metrics{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+ .review-metrics strong{font-size:clamp(20px,7vw,29px)}
+ .review-metrics span{overflow-wrap:anywhere}
+ .review-grade{font-size:clamp(62px,20vw,96px)}
+ .contact{padding-top:60px;padding-bottom:65px}
+ .contact h2{font-size:clamp(45px,12vw,74px);overflow-wrap:anywhere}
+ .contact .btn{margin:0 0 12px;max-width:100%;white-space:normal}
+ footer{flex-direction:column;gap:10px}
+ .achievement-toast{bottom:12px;left:12px;right:12px;max-width:none;box-shadow:3px 3px 0 var(--ink)}
+ .bsod-overlay{padding:24px 18px}
+ .bsod-overlay h2{font-size:24px}
+}
+@media(max-width:360px){
+ .container{padding-left:14px;padding-right:14px}
+ .hero h1{font-size:clamp(40px,11vw,54px)}
+ .gallery-filter{font-size:9px}
+ .review-metrics{grid-template-columns:1fr}
+ .review-metrics div{flex-direction:row;justify-content:space-between;align-items:center}
+}
+@media(hover:none){
+ .btn,.gallery-filter,.ticket-actions button{min-height:44px}
+}
+@media print{
+ .nav-toggle{display:none!important}
+ .links{display:none!important}
+}
+
+</style>
+</head><body class="error-page"><header class="container nav"><a class="logo" href="index.html">neko<span>fied</span>143.</a><span class="mono">INCIDENT #404</span></header><main class="container error-main"><span class="eyebrow"><span class="dot"></span> SYSTEM STATUS: TECHNICALLY A WEBSITE</span><h1>404<span style="color:#7b7b72">.</span></h1><h2>This page has left the chat.</h2><p>We searched the server, checked the cables, and blamed DNS. The page is still missing. Please pretend this was intentional.</p><div class="hero-actions"><a class="btn primary" href="index.html">Return to civilization ↗</a><button class="btn secondary" type="button" onclick="history.back()">Try going back ←</button></div></main><footer class="container error-footer"><span>© <span id="year"></span> nekofied143 · This is fine.</span><span>ERROR HANDLED WITH QUESTIONABLE GRACE</span></footer><script>document.getElementById('year').textContent=new Date().getFullYear();</script><script>
+(function(){
+const nav=document.querySelector('.nav');
+const toggle=document.getElementById('mobile-nav-toggle');
+if(!nav||!toggle)return;
+const close=()=>{nav.classList.remove('menu-open');toggle.setAttribute('aria-expanded','false');toggle.querySelector('.menu-label').textContent='MENU';};
+toggle.addEventListener('click',()=>{const opened=nav.classList.toggle('menu-open');toggle.setAttribute('aria-expanded',String(opened));toggle.querySelector('.menu-label').textContent=opened?'CLOSE':'MENU';});
+nav.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',close));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav.classList.contains('menu-open')){close();toggle.focus();}});
+document.addEventListener('click',e=>{if(nav.classList.contains('menu-open')&&!nav.contains(e.target))close();});
+})();
+</script>
+</body></html>
